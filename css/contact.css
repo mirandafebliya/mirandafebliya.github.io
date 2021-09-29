@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+
+* {
+  font-family: 'Questrial', sans-serif !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  font-weight:normal !important;
+  color: #000 !important;
+}
+
+#id123-control14215318,
+#id123-control14215319,
+#id123-control14215320 {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#fieldcontainer1,
+#fieldcontainer2,
+#fieldcontainer3,
+#rowsec3  {
+  background: #fff !important;
+}
