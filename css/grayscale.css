@@ -122,6 +122,17 @@ a:focus {
     font-weight: 700;
 }
 
+a#home {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+a#home.active {
+    visibility: visible;
+    opacity: 1;
+}
+
 .navbar-custom .navbar-brand:focus {
     outline: 0;
 }
@@ -150,7 +161,7 @@ a:focus {
 .navbar-custom .nav li a:hover {
     outline: 0;
     color: #000;
-    background-color: transparent;
+    background-color: rgb(138, 138, 138);
 }
 
 .navbar-custom .nav li a:focus,
@@ -164,6 +175,8 @@ a:focus {
 }
 
 .navbar-custom .nav li.active a {
+    font-weight: bolder;
+    pointer-events: none;
     background-color: rgba(255,255,255,.3);
 }
 
@@ -173,10 +186,11 @@ a:focus {
 
 @media(min-width:768px) {
     .navbar-custom {
-        padding: 20px 0;
+        /* padding: 20px 0; */
         border-bottom: 0;
         letter-spacing: 1px;
-        background: 0 0;
+        /* background: 0 0; */
+        background-color: rgba(255, 255, 255, 0.75);
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -186,6 +200,7 @@ a:focus {
         padding: 0;
         border-bottom: 1px solid rgba(255,255,255,.3);
         background: #fff;
+        opacity: 1;
     }
 }
 
