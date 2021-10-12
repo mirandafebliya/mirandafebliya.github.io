@@ -211,7 +211,7 @@ a#home.active {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/intro.jpg) no-repeat bottom center scroll;
+    background: url(../img/background.jfif) no-repeat bottom center scroll;
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -390,6 +390,20 @@ ul.banner-social-buttons {
 @media(max-width:1199px) {
     ul.banner-social-buttons {
         margin-top: 15px;
+    }
+}
+
+@media(max-width:1000px){
+    .img-mobile {
+        max-width: 75%;
+        max-height: 75%;
+    }
+}
+
+@media(max-width:750px){
+    .img-mobile {
+        max-width: 50%;
+        max-height: 75%;
     }
 }
 
