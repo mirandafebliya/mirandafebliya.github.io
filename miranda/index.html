@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <style>
             body {
@@ -58,11 +59,29 @@
                 transform: translateX(-50%) translateY(-50%); */
             }
 
+            .content-container-v2 {
+                position: relative;
+                top: 5%;
+                left: 10%;
+                max-width: 75vw;
+                /* -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%); */
+            }
+
             .content {
                 color: #111; 
                 font-family: 'Helvetica Neue', sans-serif; 
                 font-size: 2.5vw; 
                 font-weight: bold; 
+                letter-spacing: -1px; 
+                line-height: 1; 
+            }
+
+            .content-sub {
+                color: #111; 
+                font-family: 'Helvetica Neue', sans-serif; 
+                font-size: 1.25vw;  
                 letter-spacing: -1px; 
                 line-height: 1; 
             }
@@ -75,10 +94,10 @@
             }
 
             .button {
-                min-width: 300px;
-                min-height: 60px;
+                min-width: 225px;
+                min-height: 45px;
                 font-family: 'Nunito', sans-serif;
-                font-size: 22px;
+                font-size: 16.5px;
                 text-transform: uppercase;
                 letter-spacing: 1.3px;
                 font-weight: 700;
@@ -98,8 +117,8 @@
             button::before {
                 content: '';
                 border-radius: 1000px;
-                min-width: calc(300px + 12px);
-                min-height: calc(60px + 12px);
+                min-width: calc(225px + 9px);
+                min-height: calc(45px + 9px);
                 border: 6px solid #00FFCB;
                 box-shadow: 0 0 60px rgba(0,255,203,.64);
                 position: absolute;
@@ -110,17 +129,17 @@
                 transition: all .3s ease-in-out 0s;
             }
 
-            .button:hover, .button:focus {
+            .button:checked, .button:focus {
                 color: #313133;
                 transform: translateY(-6px);
             }
 
-            button:hover::before, button:focus::before {
+            button:checked::before, button:focus::before {
                 opacity: 1;
             }
 
             button::after {
-                content: '';
+                /* content: '';
                 width: 30px; height: 30px;
                 border-radius: 100%;
                 border: 6px solid #00FFCB;
@@ -129,10 +148,10 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                animation: ring 1.5s infinite;
+                animation: ring 1.5s infinite; */
             }
 
-            button:hover::after, button:focus::after {
+            button:checked::after, button:focus::after {
                 animation: none;
                 display: none;
             }
@@ -180,8 +199,9 @@
     <body>
         <div class="container-fluid p-0">
             <div class="row bg one" style="height:100vh;">
+                <iframe id="video1" width="1" height="1" src="https://www.youtube.com/embed/Cj98DkpkpPU?rel=0&amp;controls=0&amp;showinfo=0" allow="autoplay; encrypted-media"></iframe>
                 <div class="col-sm-12">
-                    <div class="row" style="height:80%;">
+                    <div class="row" style="height:70%;">
                         <div class="col-lg-12">
                             <div class="title-container">
                                 <h1 class="title-miranda">Luthfi and Miranda Story</h1>
@@ -191,7 +211,7 @@
                     <div class="row" style="height:20%;">
                         <div class="col-lg-12">
                             <div class="wrap">
-                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                                <button class="button" id="playvideo" onclick="goDown()">&#11167; Go Down</button>
                             </div>
                         </div>    
                     </div>
@@ -267,22 +287,231 @@
                 </div>
             </div>
             <div class="row bg one" style="height:100vh;">
-                <h1>HEHE 3</h1>
+                <div class="col-sm-12">
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Dimanapun itu, aku langsung ngerasa kalo calon istriku bentukannya bakal kaya gini...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <ul class="gallery">
+                                <li class="item-1">
+                                    <img src="img/asset/2.1.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/2.2.heic" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/2.3.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/2.4.heic" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/2.5.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/2.6.heic" class="gallery-item">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="wrap">
+                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
             </div>
             <div class="row bg two" style="height:100vh;">
-                <h1>HEHE 4</h1>
+                <div class="col-sm-12">
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Yang bener tidur, nih kalo ga percaya</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <ul class="gallery">
+                                <li class="item-1">
+                                    <img src="img/asset/3.1.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/3.2.heic" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/3.3.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/3.4.heic" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/3.5.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/3.6.heic" class="gallery-item">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="wrap">
+                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
             </div>
             <div class="row bg one" style="height:100vh;">
-                <h1>HEHE 5</h1>
+                <div class="col-sm-12">
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Semuanya bener hehe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <ul class="gallery">
+                                <li class="item-1">
+                                    <img src="img/asset/4.1.heic" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/4.2.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/4.3.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/4.4.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/4.5.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/4.6.heic" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/4.7.jpg" class="gallery-item">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="wrap">
+                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row bg two" style="height:100vh;">
+                <div class="col-sm-12">
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Happy birthday miranda cantik! </p>
+                                <p class="conten-sub">Selamat mengarungi umur 24<br/>Semoga menjadi jadi wanita dewasa yang hebat, bijaksana, dan memberikan kebahagiaan bagi orang2 sekitar yaa<br/>Dan semoga rencana besar kita dilancarkan dan makin sayang aku</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:40%;">
+                        <div class="col-lg-12">
+                            <ul class="gallery">
+                                <li class="item-1">
+                                    <img src="img/asset/5.1.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-2">
+                                    <img src="img/asset/5.2.jpg" class="gallery-item">
+                                </li>
+                                <li class="item-1">
+                                    <img src="img/asset/5.3.jpg" class="gallery-item">
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="wrap">
+                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row bg one" style="height:100vh;">
+                <div class="col-sm-12">
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Aku juga mikir kaya gitu! kok bisa baca pikiran aku?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:60%;">
+                        <div class="col-lg-12">
+                            <div class="content-container-v2">
+                                <p class="content-sub">Ucapan dari masyarakat umum</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="wrap">
+                                <button class="button" onclick="goDown()">&#11167; Go Down</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row bg two" style="height:100vh;">
+                <div class="col-sm-12">
+                    <div class="row" style="height:20%;">
+                        <div class="col-lg-12">
+                            <div class="content-container">
+                                <p class="content">Maap yaa segini doang karena aku kurang kreatip :(<br/>muachhhh :*</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height:80%;">
+                        <div class="col-lg-12">
+                            <div class="content-container-v2">
+                                <p class="content-sub">Gambar2 lucu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
+            var clicked = false;
+
             function goDown(){
                 let pageHeight = window.innerHeight;
                 window.scrollBy(0, pageHeight);
             }
+
+            //use .one to ensure this only happens once
+            $("#playvideo").click(function(){
+                if(!clicked){
+                    clicked = true;
+                    console.log("masup");
+                    $("#video1")[0].src += "&autoplay=1";
+                }
+            });
         </script>
     </body>
 
