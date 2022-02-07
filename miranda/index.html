@@ -476,7 +476,8 @@
     <body onload="onload()">
         <div class="container-fluid p-0">
             <div class="row bg one" style="height:100vh;"> <!-- PAGE 1 COY -->
-                <iframe id="video1" width="1" height="1" src="https://www.youtube.com/embed/Cj98DkpkpPU?rel=0&amp;controls=0&amp;showinfo=0" allow="autoplay; encrypted-media"></iframe>
+                <div id="bg-music"></div>
+                <!-- <iframe id="video1" width="1" height="1" src="https://www.youtube.com/embed/Cj98DkpkpPU?rel=0&amp;controls=0&amp;showinfo=0" allow="autoplay; encrypted-media"></iframe> -->
                 <div class="col-sm-12">
                     <div class="row" style="height:70%;">
                         <div class="col-lg-12">
@@ -1033,6 +1034,40 @@
         <script>
             var clicked = [false, false, false, false, false, false, false];
 
+            //BG Music Youtube
+            var tag = document.createElement('script');
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubeIframeAPIReady() {
+            player = new YT.Player('bg-music', {
+                height: '1',
+                width: '1',
+                videoId: 'Cj98DkpkpPU',
+                playerVars: {
+                    'autoplay': 1,
+                    'loop': 1,
+                    'playsinline': 1,
+                    'control': 0,
+                    'playlist': 'Cj98DkpkpPU',
+                    // 'mute': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            }
+
+            function onPlayerReady(event) {
+            }
+
+            function onPlayerStateChange(event) {
+            }
+
             //Full Screen
             function openFullscreen(id) {
                 var elem = document.getElementById(id);
@@ -1280,7 +1315,8 @@
                         });
                         $('#page2Q').modal('show');
 
-                        $("#video1")[0].src += "&autoplay=1&loop=1&playlist=Cj98DkpkpPU";
+                        player.setVolume(2.5);
+                        player.playVideo();
                         break;
                     case 1:
                         if(clicked[id]){
