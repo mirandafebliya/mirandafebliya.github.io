@@ -772,7 +772,12 @@
                             </div>
                             <div style="min-height: 50%;">
                                 <img src="img/people/citol.png" class="gallery-item-4" style="height: 20vh; width: 10vw; border-radius: 75px;float:left;">
-                                <p style="float:left; padding:30px; font-weight: bold; max-width: 70%;"><q>Happy Birthday Miranda</q></p>
+                                <div style="float:left;padding-left:30px;height:200px;" onclick="openFullscreen('video-citol')">
+                                    <video style="height:100%;" controls id="video-citol">
+                                      <source src="https://video-downloads.googleusercontent.com/AGQNM9J1mFXQSbC5sUPYRrnL44fdLBo2_VgfepmwEIqqTlsn8KRXXqAB8Sr6L4y2Z3VrzeKrLILjMaaMmqZqSHcRObYkBR0bQxQbSoNHqf_vMiMdxFv8mGO-WBWEgXO02VdPdYcBA8CsLYnXevlmm9GmXF7wlpWwwbgjZqlK-PcNtPDZ051zyq2RDGVWZv-pfPw_N6Djey3Bwb37vyaXGNiFFgVAtETgY-yGFczyVuatEKVwdl7oXiObbrQ4KxCAtVxBiU9Dq3v9j-HLReKYH6hNd00IPKGKi4tlwFWOB-UNmodC5eVSLzBG-4lzTUH_0B3FuNThH8fqyJLTb9NMUtP-u5RRfk8wER2S0_QTYaOORIvEPHy-XvXT_1sQdS4IHa9KR-c_C7Ww6gkZ2pcXfkM5aYRm_yhkEC-Rn6iQsXwTTTP03T3bzk4QsVCgjNfGDE44c4GaxUq4kAlUZdWonr0cISge7K8p_ic3eXfsb5vlLi5IDU_CW1Ln3-_r1sxVMldEAged0VYqZRkVaIRyBHt4DGrEa7TNX1OD4q_m2FoaMUIAUoH7dIdvrBuzs5ta0BOyEMN7kIBeBZuWN9acg8mMXhkjd3ThfdbpiozzxvYqFcxJWuD053lBQX8vCPpcyu1w5D-5oKrwa7IHoBj_v5UfsOYMuDrThGjvXkoTjs2Me9lGMOOmaK-mkKjjv3pFIHS6-Y8dgtaxg0V7kdvXwmCYOlNc2VZ0xaIpO-ZkInsvsXG1hvoFweD_wMpHRJ0Zj5FxpUUP3ZvFs031KvuP_cSNhDuGkyZ0TKg3gDVnzPstOKCWT9QKhOcNIiQhbPHmsLW0_O53rAODgfaogIG3RGyQ3yqUg7fq-Nrr8KxScHR_u7Ld4G1G-KQ?authuser=0" type="video/mp4">
+                                    </video>
+                                </div>
+                                <!-- <iframe src="https://photos.app.goo.gl/faK94ER5WefiQs3G7" width="70%" style="float:left; padding:30px;"></iframe> -->
                             </div>
                         </div>
                     </div>
@@ -1027,6 +1032,20 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script>
             var clicked = [false, false, false, false, false, false, false];
+
+            //Full Screen
+            function openFullscreen(id) {
+                var elem = document.getElementById(id);
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+            }
 
             function onload(){
                 $('#page1Q').modal({
