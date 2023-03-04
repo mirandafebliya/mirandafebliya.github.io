@@ -4,7 +4,7 @@
   <body>
     <div class="container">
       {% include header.html %}
-      <div class="content-wrapper" style="column-count: 2;column-gap: 15px;-moz-column-count: 2;-moz-column-gap: 15px;-webkit-column-count: 2;-webkit-column-gap: 15px;">
+      <div class="content-wrapper" {% if page.title == "Home" %}style="column-count: 2;column-gap: 15px;-moz-column-count: 2;-moz-column-gap: 15px;-webkit-column-count: 2;-webkit-column-gap: 15px;"{% endif %}>
         {{ content }}
       </div>
       {% include footer.html %}
