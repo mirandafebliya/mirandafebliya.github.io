@@ -1,0 +1,32 @@
+#home, #about, #portfolio, #contact {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    /* color: #fff; */
+    text-align: center;
+    padding: 100px 0;
+    height: 100vh; /* Set the height to be equal to the viewport height */
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px; /* Set the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+#contact label {
+    margin-bottom: 10px;
+  }
+  
+#contact input,
+#contact textarea {
+    margin-bottom: 20px;
+  }
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
