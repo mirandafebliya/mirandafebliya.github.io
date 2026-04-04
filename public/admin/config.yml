@@ -1,0 +1,97 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: mirandafebliya/mirandafebliya.github.io
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "galleries"
+    label: "Galleries"
+    label_singular: "Gallery"
+    folder: "src/content/galleries"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["order", "title"]
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Gallery name, e.g. '// Spring at Kamakura'"
+
+      - label: "Cover Image"
+        name: "cover"
+        widget: "image"
+        hint: "Main cover image that appears on the homepage grid"
+
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        required: false
+        hint: "Year label, e.g. '2025'"
+
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        default: 0
+        value_type: "int"
+        hint: "Lower number = appears first on homepage"
+
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        label_singular: "Photo"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+        hint: "Add photos to this gallery. Drag to reorder."
+
+      - label: "Related Galleries"
+        name: "relatedGalleries"
+        widget: "list"
+        required: false
+        default: []
+        field:
+          label: "Gallery Slug"
+          name: "slug"
+          widget: "string"
+        hint: "Slugs of related galleries (e.g. 'kawagoe-session')"
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "src/data/settings.json"
+        fields:
+          - label: "Initials / Logo Text"
+            name: "name"
+            widget: "string"
+            hint: "Short name or initials shown in the header (e.g. 'MF')"
+
+          - label: "Full Name"
+            name: "fullName"
+            widget: "string"
+
+          - label: "Tagline"
+            name: "tagline"
+            widget: "text"
+            hint: "The description shown on the homepage hero section"
+
+          - label: "Email"
+            name: "email"
+            widget: "string"
+
+          - label: "Instagram URL"
+            name: "instagram"
+            widget: "string"
+            required: false
+
+          - label: "Booking Button Label"
+            name: "bookingLabel"
+            widget: "string"
+            default: "Book a session"

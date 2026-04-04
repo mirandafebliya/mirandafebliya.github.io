@@ -1,0 +1,33 @@
+---
+import settings from '../data/settings.json';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-dark)]/90 backdrop-blur-md">
+  <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="text-xl font-semibold tracking-wider text-white hover:opacity-80 transition-opacity">
+      {settings.name}
+    </a>
+    <div class="flex items-center gap-8">
+      <a
+        href="/"
+        class:list={[
+          'text-sm tracking-wide transition-opacity hover:opacity-100',
+          currentPath === '/' ? 'text-white opacity-100' : 'text-white/60',
+        ]}
+      >
+        Work
+      </a>
+      <a
+        href="/contact"
+        class:list={[
+          'text-sm tracking-wide transition-opacity hover:opacity-100',
+          currentPath === '/contact' ? 'text-white opacity-100' : 'text-white/60',
+        ]}
+      >
+        Contact
+      </a>
+    </div>
+  </nav>
+</header>
