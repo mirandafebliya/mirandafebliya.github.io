@@ -5,7 +5,7 @@ backend:
   repo: mirandafebliya/mirandafebliya.github.io
   branch: main
   auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23ctRZxw4he8ahX7wf
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
