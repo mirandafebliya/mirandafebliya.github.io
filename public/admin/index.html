@@ -8,18 +8,33 @@
 </head>
 <body>
   <script>
+    // Enable local backend only on localhost (for npx decap-server)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      window.CMS_MANUAL_INIT = true;
+    }
+
     // Debug: verify config before CMS loads
     fetch('/admin/config.yml')
       .then(r => r.text())
       .then(config => {
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
         console.log('=== Decap CMS Config Debug ===');
+        console.log('Environment:', isLocal ? 'LOCAL' : 'PRODUCTION');
         console.log('auth_type found:', config.includes('auth_type: pkce') ? 'pkce ✅' : 'NOT pkce ❌');
         console.log('app_id found:', config.includes('app_id:') ? config.match(/app_id:\s*(.+)/)?.[1] : 'MISSING ❌');
-        console.log('local_backend:', config.includes('local_backend: true') ? 'true' : 'false');
-        console.log('Full config:\n', config);
         console.log('==============================');
       });
   </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // If local, manually init with local_backend enabled
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      CMS.init({
+        config: {
+          local_backend: true,
+        },
+      });
+    }
+  </script>
 </body>
 </html>
